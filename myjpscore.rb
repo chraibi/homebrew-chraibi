@@ -13,7 +13,7 @@ class Myjpscore < Formula
   # timer chrono system filesystem unit_test_framework
   depends_on "zlib" if build.with? "jpsfire"
   depends_on "cgal" if build.with? "airouter"
-
+  system "false"
 
 
   def install
