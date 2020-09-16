@@ -1,4 +1,4 @@
-class myjpscore < Formula
+class Myjpscore < Formula
   desc "Core simulation module for JuPedSim"
   homepage "https://www.jupedsim.org/"
 
