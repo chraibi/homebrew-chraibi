@@ -36,10 +36,10 @@ class Myjpscore < Formula
 
     Dir.mkdir "build"
     Dir.chdir "build"
-    system "pwd"
-    system "ls .."
+    puts Dir.pwd
     system "sh ../scripts/setup-deps.sh"
     system "cmake", "..", *args
+    puts Dir.pwd
     system "make"
     # todo fix this
     bin.install "../bin/jpscore"
