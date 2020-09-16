@@ -38,7 +38,7 @@ class Myjpscore < Formula
     Dir.chdir "build"
     Dir.pwd   
     puts Dir.pwd
-    system "sh ../scripts/setup-deps.sh"
+    bin.install '../scripts/setup-deps.sh'
     system "cmake", "..", *args
     puts Dir.pwd
     system "make"
