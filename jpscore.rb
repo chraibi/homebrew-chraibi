@@ -36,7 +36,9 @@ class Jpscore < Formula
 
     Dir.mkdir "build"
     Dir.chdir "build"
-    system "../scripts/setup-deps.sh"
+    system "pwd"
+    system "ls .."
+    system "sh ../scripts/setup-deps.sh"
     system "cmake", "..", *args
     system "make"
     # todo fix this
