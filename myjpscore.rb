@@ -15,7 +15,6 @@ class Myjpscore < Formula
   depends_on "catch2"
   depends_on "cli11"
   depends_on "numpy" if build.with? "tests"
-  depends_on "pandas" if build.with? "tests"
 
   def install
     args = std_cmake_args + %W[
