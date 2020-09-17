@@ -11,7 +11,6 @@ class Myjpscore < Formula
   depends_on "boost"
   depends_on "fmt"
   depends_on "spdlog"
-  depends_on "catch2"
   depends_on "cli11"
 
   def install
