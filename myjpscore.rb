@@ -10,6 +10,10 @@ class Myjpscore < Formula
   option "with-tests", "add tests (unit tests, RiMEA, ...)"
   depends_on "cmake" => :build
   depends_on "boost"
+  depends_on fmt
+  depends_on spdlog
+  depends_on catch2
+  depends_on cli11
   # timer chrono system filesystem unit_test_framework
   depends_on "zlib" if build.with? "jpsfire"
   depends_on "cgal" if build.with? "airouter"
@@ -20,7 +24,6 @@ class Myjpscore < Formula
     args = std_cmake_args + %W[
            -DCMAKE_BUILD_TYPE=Release
            -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=.
-           -DCMAKE_PREFIX_PATH=CMAKE_BINARY_DIR/deps
     ]
 
     if build.with? "jpsfire"
