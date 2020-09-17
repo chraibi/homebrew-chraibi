@@ -20,7 +20,7 @@ class Myjpscore < Formula
     args = std_cmake_args + %W[
            -DCMAKE_BUILD_TYPE=Release
            -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=.
-           -DCMAKE_PREFIX_PATH=$(pwd)/deps
+           -DCMAKE_PREFIX_PATH=CMAKE_BINARY_DIR/deps
     ]
 
     if build.with? "jpsfire"
