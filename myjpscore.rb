@@ -42,9 +42,10 @@ class Myjpscore < Formula
     Dir.chdir "build"
     Dir.pwd   
     system "cmake", "..", *args
-    system "make -n"
-    # todo fix this
+    system "make -j"
+    # move executables to the bin directory of the formula
     bin.install "bin/jpscore"
+    bin.install "bin/jpsreport"
     doc.install "../README.md", "../LICENSE"
     ohai "jpscore installed in #{bin}"
     if build.with? "demos"
