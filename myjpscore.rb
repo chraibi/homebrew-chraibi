@@ -5,7 +5,6 @@ class Myjpscore < Formula
   head "https://github.com/JuPedSim/jpscore.git"
 
   option "with-demos", "Add demo files"
-  option "with-tests", "add tests (unit tests, RiMEA, ...)"
   # dependencies
   depends_on "cmake" => :build
   depends_on "ninja" => :build
@@ -14,7 +13,6 @@ class Myjpscore < Formula
   depends_on "spdlog"
   depends_on "catch2"
   depends_on "cli11"
-  depends_on "numpy" if build.with? "tests"
 
   def install
     args = std_cmake_args + %W[
@@ -22,11 +20,6 @@ class Myjpscore < Formula
            -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=.
            -GNinja
     ]
-
-    if build.with? "tests"
-      args << "-DBUILD_TESTING=ON"
-      args << "-DBUILD_CPPUNIT_TEST=ON"
-    end
 
     Dir.mkdir "build"
     Dir.chdir "build"
