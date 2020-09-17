@@ -41,7 +41,7 @@ class Myjpscore < Formula
     Dir.chdir "build"
     Dir.pwd   
     system "cmake", "..", *args
-    system "make"
+    system "make -n"
     # todo fix this
     bin.install "../bin/jpscore"
     doc.install "../README.md", "../CHANGELOG.md", "../LICENSE"
