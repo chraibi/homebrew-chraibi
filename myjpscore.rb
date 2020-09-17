@@ -40,10 +40,7 @@ class Myjpscore < Formula
     Dir.mkdir "build"
     Dir.chdir "build"
     Dir.pwd   
-    puts Dir.pwd
-    bin.install '../scripts/setup-deps.sh'
     system "cmake", "..", *args
-    puts Dir.pwd
     system "make"
     # todo fix this
     bin.install "../bin/jpscore"
@@ -57,7 +54,7 @@ class Myjpscore < Formula
   end
 
   test do
-    last_release="0.8.3"
+    last_release="0.8.4"
     #assert_match version.to_s, shell_output("jpsreport -v 2>/dev/null")
     test_version=shell_output("../bin/jpsrcore 2>/dev/null | grep Version | awk -F: '{ print $2 }' |  tr -d '[[:space:]]'")
     ohai "checking version:"
