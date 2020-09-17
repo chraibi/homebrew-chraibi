@@ -1,13 +1,14 @@
 class Myjpscore < Formula
   desc "Core simulation module for JuPedSim"
   homepage "https://www.jupedsim.org/"
-
+  license "LGPL-3.0-or-later"
   head "https://github.com/JuPedSim/jpscore.git"
 
   option "with-demos", "Add demo files"
   option "with-jpsfire", "use JPSfire"
   option "with-airouter", "use AIrouter (experimental)"
   option "with-tests", "add tests (unit tests, RiMEA, ...)"
+  # dependencies
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "fmt"
@@ -43,8 +44,8 @@ class Myjpscore < Formula
     system "cmake", "..", *args
     system "make -n"
     # todo fix this
-    bin.install "../bin/jpscore"
-    doc.install "../README.md", "../CHANGELOG.md", "../LICENSE"
+    bin.install "bin/jpscore"
+    doc.install "../README.md", "../LICENSE"
     ohai "jpscore installed in #{bin}"
     if build.with? "demos"
       doc.install Dir["#{buildpath}/demos"]
