@@ -5,8 +5,6 @@ class Myjpscore < Formula
   head "https://github.com/JuPedSim/jpscore.git"
 
   option "with-demos", "Add demo files"
-  option "with-jpsfire", "use JPSfire"
-  option "with-airouter", "use AIrouter (experimental)"
   option "with-tests", "add tests (unit tests, RiMEA, ...)"
   # dependencies
   depends_on "cmake" => :build
@@ -26,12 +24,6 @@ class Myjpscore < Formula
            -GNinja
     ]
 
-    if build.with? "jpsfire"
-      args <<  "-DJPSFIRE=true"
-    end
-    if build.with? "airouter"
-      args << "-DAIROUTER=true"
-    end
     if build.with? "tests"
       args << "-DBUILD_TESTING=ON"
       args << "-DBUILD_CPPUNIT_TEST=ON"
